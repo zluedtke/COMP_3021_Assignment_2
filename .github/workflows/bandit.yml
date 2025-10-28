@@ -15,5 +15,3 @@ jobs:
 
       - name: Bandit Scan
         uses: shundor/python-bandit-scan@v1.0
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
