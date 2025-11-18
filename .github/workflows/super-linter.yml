@@ -1,6 +1,7 @@
 name: Super-Linter
 
 on: 
+  push:
   workflow_dispatch:
 
 jobs:
