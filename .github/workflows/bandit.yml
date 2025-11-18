@@ -1,6 +1,7 @@
 name: Bandit Scan
 
 on:
+    push:
     workflow_dispatch:
 
 jobs:
