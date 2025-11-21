@@ -2,23 +2,30 @@
 name: Super-Linter
 
 on:
-  workflow_dispatch:
-  push:
+  push: null
+  pull_request: null
+
+permissions:
+  contents: read
 
 jobs:
-  super-lint:
-    name: Lint code base
+  build:
+    name: Lint
     runs-on: ubuntu-latest
+
     permissions:
       contents: read
+      packages: read
       statuses: write
-      pull-requests: write
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
 
-      - name: Run Super-Linter
-        uses: super-linter/super-linter@v8.2.1
+      - name: Super-linter
+        uses: super-linter/super-linter@2bdd90ed3262e023ac84bf8fe35dc480721fc1f2 # v8.2.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
